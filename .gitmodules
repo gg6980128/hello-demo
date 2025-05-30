@@ -1,0 +1,4 @@
+[submodule "hello-parent"]
+	path = hello-parent
+	url = https://github.com/gg6980128/hello-parent.git
+	branch = master

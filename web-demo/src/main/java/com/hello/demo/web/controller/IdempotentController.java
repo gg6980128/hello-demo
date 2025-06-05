@@ -1,7 +1,7 @@
-package com.hello.demo.web;
+package com.hello.demo.web.controller;
 
-import com.hello.common.core.exception.BusinessException;
 import com.hello.common.core.pojo.R;
+import com.hello.starter.idempotent.annotation.RepeatSubmit;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Slf4j
 @RestController
-@RequestMapping("/exception")
-public class ExceptionController {
+@RequestMapping("/idempotent")
+public class IdempotentController {
 
+    @RepeatSubmit(message = "请不要重复提交")
     @GetMapping
-    public R<Void> testException() {
-        log.info("测试异常请求");
-        throw new BusinessException(500, "测试异常");
+    public R<Void> testIdempotent() {
+        log.info("测试幂等请求");
+        return R.ok();
     }
 }

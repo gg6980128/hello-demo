@@ -3,6 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>com.hello</groupId>
+        <artifactId>hello-parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
     <groupId>com.hello.demo</groupId>
     <artifactId>web-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -11,13 +17,20 @@
 
     <properties>
         <java.version>21</java.version>
-        <hello.version>1.0.0</hello.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.hello.starter</groupId>
             <artifactId>hello-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.hello.starter</groupId>
+            <artifactId>hello-starter-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.hello.starter</groupId>
+            <artifactId>hello-starter-idempotent</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -42,7 +55,7 @@
             <dependency>
                 <groupId>com.hello</groupId>
                 <artifactId>hello-bom</artifactId>
-                <version>${hello.version}</version>
+                <version>${parent.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -51,6 +64,10 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

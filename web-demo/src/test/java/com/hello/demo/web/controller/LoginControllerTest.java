@@ -1,4 +1,4 @@
-package com.hello.demo.web;
+package com.hello.demo.web.controller;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +22,7 @@ public class LoginControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    void testException_shouldReturn500WithErrorMsg() throws Exception {
+    void testLogin() throws Exception {
         mockMvc.perform(post("/login")
                         .header(HttpHeaders.ACCEPT_LANGUAGE, "zh-CN")
                         .content("{\"username\":\"admin\",\"password\":\"123456\",\"clientId\":\"web\",\"grantType\":\"password\"}")

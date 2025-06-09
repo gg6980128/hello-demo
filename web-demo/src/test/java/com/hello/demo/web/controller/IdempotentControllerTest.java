@@ -1,4 +1,4 @@
-package com.hello.demo.web;
+package com.hello.demo.web.controller;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
